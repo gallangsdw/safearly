@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.asyikwae.safearly.R
 
-class DashboardFragment : Fragment() {
+class ActivityFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var activityViewModel: ActivityViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        activityViewModel =
+                ViewModelProvider(this).get(ActivityViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_activity, container, false)
+        val textView: TextView = root.findViewById(R.id.text_activity)
+        activityViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

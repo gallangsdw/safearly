@@ -9,7 +9,7 @@
         android:fillType="evenOdd"/>
     <path
         android:pathData="M10.4308,19.1363C8.7167,19.1363 3.4999,19.1363 3.4999,15.9015C3.4999,13.0175 7.4558,12.6841 10.4308,12.6841C12.1449,12.6841 17.3599,12.6841 17.3599,15.919C17.3599,18.803 13.4049,19.1363 10.4308,19.1363Z"
-        android:fillColor="#2E2E2E"
+        android:fillColor="#777777"
         android:fillType="evenOdd"/>
   </group>
   <group>
@@ -18,7 +18,7 @@
         android:fillType="evenOdd"/>
     <path
         android:pathData="M10.4308,11.0413H10.4028C7.846,11.0334 5.7749,8.9483 5.7837,6.3933C5.7837,3.834 7.8679,1.7497 10.4308,1.7497C12.9928,1.7497 15.0762,3.834 15.0762,6.3959C15.0762,8.9579 12.9928,11.0413 10.4308,11.0413Z"
-        android:fillColor="#2E2E2E"
+        android:fillColor="#777777"
         android:fillType="evenOdd"/>
   </group>
 </vector>
