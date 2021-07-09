@@ -4,19 +4,24 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import com.asyikwae.safearly.MainActivity
 import com.asyikwae.safearly.R
 import com.asyikwae.safearly.databinding.ActivityAuthBinding
+import com.asyikwae.safearly.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class AuthActivity : AppCompatActivity() {
     companion object {
         private const val RC_SIGN_IN = 120
+        private const val TAG = "SignIn"
     }
 
     private lateinit var binding: ActivityAuthBinding
@@ -75,6 +80,8 @@ class AuthActivity : AppCompatActivity() {
 
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
+        val profile = MutableLiveData<User>()
+
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -82,11 +89,31 @@ class AuthActivity : AppCompatActivity() {
                     Log.d("auth activity", "signInWithCredential:success")
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
+                    val currentUser = mAuth.currentUser
+                    profile.value = User(
+                        uid = currentUser?.uid,
+                        email = currentUser?.email,
+                        name = currentUser?.displayName,
+                        photoUrl = currentUser?.photoUrl.toString()
+                    )
+                    addUserToDatabase(profile.value)
                     finish()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("auth activity", "signInWithCredential:failure", task.exception)
                 }
+            }
+    }
+
+    private fun addUserToDatabase(user: User?) {
+        val db = Firebase.firestore
+        db.collection("users").document(user?.uid!!)
+            .set(user)
+            .addOnSuccessListener {
+                Log.d(TAG, "User added : ${user.toString()}")
+            }
+            .addOnFailureListener {
+                Log.w(TAG, "Error adding document", it)
             }
     }
 }
