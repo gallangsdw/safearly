@@ -4,28 +4,52 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.asyikwae.safearly.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.asyikwae.safearly.databinding.FragmentActivityBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+
 
 class ActivityFragment : Fragment() {
 
     private lateinit var activityViewModel: ActivityViewModel
+    private var _binding: FragmentActivityBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        activityViewModel =
-                ViewModelProvider(this).get(ActivityViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_activity, container, false)
-        val textView: TextView = root.findViewById(R.id.text_activity)
-        activityViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentActivityBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        BottomSheetBehavior.from(binding.bottomSheet).apply {
+            peekHeight = 200
+            this.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
+
+        activityViewModel = ViewModelProvider(this).get(ActivityViewModel::class.java)
+        val questionAdapter = QuestionAdapter()
+
+        activityViewModel.text.observe(viewLifecycleOwner, {
+            questionAdapter.setData(it)
         })
-        return root
+
+        with(binding.sheet.rvActivity) {
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+            adapter = questionAdapter
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

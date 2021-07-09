@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="app_color">#FF3B9CD2</color>
+    <color name="font_color">#3C82AC</color>
+    <color name="sheet_color">#EEF3F8</color>
 </resources>

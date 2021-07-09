@@ -7,4 +7,9 @@
     <string name="title_profile">profil pengguna</string>
     <string name="sign_in_with_google">Sign in With Google</string>
     <string name="masuk_dengan_google">Masuk dengan Google</string>
+    <string name="sheet_question">Sudah mengkonsumsi makanan sehat ?</string>
+    <string name="add">Tambah</string>
+    <string name="activity_label">Catatan aktivitas</string>
+    <string name="activity_title">Cara mudah cegah alzheimer</string>
+    <string name="activity_sub_title">Yuk, persiapkan masa tuamu dengan lebih bahagia tanpa alzheimer</string>
 </resources>
