@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1062656278968",
+    "project_id": "safearly",
+    "storage_bucket": "safearly.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062656278968:android:7c585cb1f431f903a28f4d",
+        "android_client_info": {
+          "package_name": "com.asyikwae.safearly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1062656278968-5amq4gs0tcbtuogrihaujktacktrohel.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgvaGtlrRULwX9THVAnzJ_d9Y7JJZ8Vuk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1062656278968-5amq4gs0tcbtuogrihaujktacktrohel.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
