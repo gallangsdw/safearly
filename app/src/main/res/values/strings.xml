@@ -11,4 +11,9 @@
     <string name="nama_pengguna">Nama Pengguna</string>
     <string name="email_pengguna">emailpengguna@gmail.com</string>
     <string name="logout">Keluar</string>
+    <string name="sheet_question">Sudah mengkonsumsi makanan sehat ?</string>
+    <string name="add">Tambah</string>
+    <string name="activity_label">Catatan aktivitas</string>
+    <string name="activity_title">Cara mudah cegah alzheimer</string>
+    <string name="activity_sub_title">Yuk, persiapkan masa tuamu dengan lebih bahagia tanpa alzheimer</string>
 </resources>
