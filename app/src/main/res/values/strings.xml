@@ -16,4 +16,11 @@
     <string name="activity_label">Catatan aktivitas</string>
     <string name="activity_title">Cara mudah cegah alzheimer</string>
     <string name="activity_sub_title">Yuk, persiapkan masa tuamu dengan lebih bahagia tanpa alzheimer</string>
+    <string name="home">Beranda</string>
+    <string name="user_name">Hai nama pengguna</string>
+    <string name="greeting">Bagaimana kabarmu?</string>
+    <string name="card">card</string>
+    <string name="card_main_text">Deteksi dini Alzheimer sekarang!</string>
+    <string name="sec_text">Lebih mudah, cepat dan akurat</string>
+    <string name="button_detect">Deteksi Sekarang</string>
 </resources>

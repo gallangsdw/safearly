@@ -30,7 +30,7 @@ class ActivityFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         BottomSheetBehavior.from(binding.bottomSheet).apply {
-            peekHeight = 200
+            peekHeight = 400
             this.state = BottomSheetBehavior.STATE_COLLAPSED
         }
 
