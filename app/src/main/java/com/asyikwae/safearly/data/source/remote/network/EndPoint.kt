@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface EndPoint {
     @GET("articles")
-    fun getArticles(): Response
+    suspend fun getArticles(): List<Response>
 }

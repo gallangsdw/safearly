@@ -1,5 +1,6 @@
 package com.asyikwae.safearly.data.source.remote
 
+import android.util.Log
 import com.asyikwae.safearly.data.source.remote.network.ApiResponse
 import com.asyikwae.safearly.data.source.remote.network.EndPoint
 import com.asyikwae.safearly.data.source.remote.response.Response
@@ -21,12 +22,14 @@ class RemoteDataSource private constructor(private val endPoint: EndPoint) {
         return flow {
             try {
                 val response = endPoint.getArticles()
-                val dataArray = response
-                if (dataArray.isNotEmpty()) {
+                if (response.isNotEmpty()) {
                     emit(ApiResponse.Success(response))
                 } else {
-
+                    emit(ApiResponse.Empty)
                 }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
             }
         }
     }
